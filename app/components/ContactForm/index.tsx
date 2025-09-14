@@ -180,14 +180,14 @@ const ContactForm = ({
 
       <form
         onSubmit={handleSubmit}
-        className={`space-y-3 ${compact ? "space-y-2" : ""}`}
+        className={`space-y-4 ${compact ? "space-y-4" : ""}`}
       >
         {/* Name Field */}
         <div>
           <label
             htmlFor="name"
-            className={`block font-medium text-gray-700 mb-1 ${
-              compact ? "text-xs" : "text-xs"
+            className={`block font-medium text-gray-700 mb-2 ${
+              compact ? "text-sm" : "text-sm"
             }`}
           >
             Name *
@@ -199,8 +199,8 @@ const ContactForm = ({
             value={formData.name}
             onChange={handleInputChange}
             required
-            className={`w-full px-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-transparent ${
-              compact ? "py-1 text-xs" : "py-1.5 text-sm"
+            className={`w-full px-3 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-transparent ${
+              compact ? "py-2.5 text-sm" : "py-2 text-sm"
             }`}
             placeholder="Your full name"
           />
@@ -210,8 +210,8 @@ const ContactForm = ({
         <div>
           <label
             htmlFor="phone"
-            className={`block font-medium text-gray-700 mb-1 ${
-              compact ? "text-xs" : "text-xs"
+            className={`block font-medium text-gray-700 mb-2 ${
+              compact ? "text-sm" : "text-sm"
             }`}
           >
             Mobile Number *
@@ -227,16 +227,18 @@ const ContactForm = ({
               name: "phone",
               required: true,
             }}
-            inputClass={`w-full px-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-transparent ${
-              compact ? "py-1 text-xs" : "py-1.5 text-sm"
+            inputClass={`w-full px-3 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-transparent ${
+              compact ? "py-2.5 text-sm" : "py-2 text-sm"
             }`}
             buttonClass="border border-gray-300 rounded-l-md"
-            containerClass="phone-input-container"
+            containerClass="phone-input-container w-full"
             enableSearch={false}
             disableSearchIcon={true}
             disableDropdown={true}
             placeholder="Enter 10-digit mobile number"
             masks={{ in: "..........." }}
+            containerStyle={{ width: "100%" }}
+            inputStyle={{ width: "100%" }}
           />
         </div>
 
@@ -250,8 +252,8 @@ const ContactForm = ({
           <div>
             <label
               htmlFor="email"
-              className={`block font-medium mb-1 ${
-                compact ? "text-xs" : "text-xs"
+              className={`block font-medium text-gray-700 mb-2 ${
+                compact ? "text-sm" : "text-sm"
               }`}
             >
               Email *
@@ -263,8 +265,8 @@ const ContactForm = ({
               value={formData.email}
               onChange={handleInputChange}
               required
-              className={`w-full px-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-transparent ${
-                compact ? "py-1 text-xs" : "py-1.5 text-sm"
+              className={`w-full px-3 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-transparent ${
+                compact ? "py-2.5 text-sm" : "py-2 text-sm"
               }`}
               placeholder="your.email@example.com"
             />
@@ -274,8 +276,8 @@ const ContactForm = ({
           <div>
             <label
               htmlFor="service"
-              className={`block font-medium mb-1 ${
-                compact ? "text-xs" : "text-xs"
+              className={`block font-medium text-gray-700 mb-2 ${
+                compact ? "text-sm" : "text-sm"
               }`}
             >
               Services *
@@ -286,8 +288,8 @@ const ContactForm = ({
               value={formData.service}
               onChange={handleInputChange}
               required
-              className={`w-full px-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-transparent ${
-                compact ? "py-1 text-xs" : "py-1.5 text-sm"
+              className={`w-full px-3 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-transparent ${
+                compact ? "py-2.5 text-sm" : "py-2 text-sm"
               }`}
             >
               <option value="">Select a service</option>
@@ -304,8 +306,8 @@ const ContactForm = ({
         <div>
           <label
             htmlFor="businessTitle"
-            className={`block font-medium mb-1 ${
-              compact ? "text-xs text-gray-700" : "text-xs text-white"
+            className={`block font-medium text-gray-700 mb-2 ${
+              compact ? "text-sm" : "text-sm"
             }`}
           >
             Business Title *
@@ -317,8 +319,8 @@ const ContactForm = ({
             value={formData.businessTitle}
             onChange={handleInputChange}
             required
-            className={`w-full px-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-transparent ${
-              compact ? "py-1 text-xs" : "py-1.5 text-sm"
+            className={`w-full px-3 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-transparent ${
+              compact ? "py-2.5 text-sm" : "py-2 text-sm"
             }`}
             placeholder="What business do you have?"
           />
@@ -328,8 +330,8 @@ const ContactForm = ({
         <div>
           <label
             htmlFor="location"
-            className={`block font-medium mb-1 ${
-              compact ? "text-xs" : "text-xs"
+            className={`block font-medium text-gray-700 mb-2 ${
+              compact ? "text-sm" : "text-sm"
             }`}
           >
             Location *
@@ -341,8 +343,8 @@ const ContactForm = ({
             value={formData.location}
             onChange={handleInputChange}
             required
-            className={`w-full px-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-transparent ${
-              compact ? "py-1 text-xs" : "py-1.5 text-sm"
+            className={`w-full px-3 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-transparent ${
+              compact ? "py-2.5 text-sm" : "py-2 text-sm"
             }`}
             placeholder="Your location"
           />
@@ -352,8 +354,8 @@ const ContactForm = ({
         <div>
           <label
             htmlFor="message"
-            className={`block font-medium mb-1 ${
-              compact ? "text-xs" : "text-xs"
+            className={`block font-medium text-gray-700 mb-2 ${
+              compact ? "text-sm" : "text-sm"
             }`}
           >
             Message *
@@ -364,9 +366,9 @@ const ContactForm = ({
             value={formData.message}
             onChange={handleInputChange}
             required
-            rows={compact ? 2 : 3}
-            className={`w-full px-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-transparent resize-none ${
-              compact ? "py-1 text-xs" : "py-1.5 text-sm"
+            rows={compact ? 3 : 4}
+            className={`w-full px-3 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-transparent resize-none ${
+              compact ? "py-2.5 text-sm" : "py-2 text-sm"
             }`}
             placeholder="Tell us about your project..."
           />
@@ -376,7 +378,7 @@ const ContactForm = ({
           type="submit"
           disabled={isSubmitting}
           className={`font-semibold text-white bg-btnblue hover:bg-hoblue rounded-full w-full ${
-            compact ? "text-sm py-1.5 px-8" : "text-md py-2 px-12"
+            compact ? "text-sm py-3 px-8" : "text-md py-3 px-12"
           }`}
         >
           {isSubmitting ? "Sending..." : "Send Message"}

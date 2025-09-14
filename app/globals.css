@@ -396,18 +396,26 @@ html {
 }
 
 /* Phone Input Custom Styles */
+.phone-input-container {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
 .phone-input-container .react-tel-input {
-  width: 100%;
+  width: 100% !important;
+  max-width: 100% !important;
 }
 
 .phone-input-container .react-tel-input .form-control {
   width: 100% !important;
-  height: 36px !important;
+  max-width: 100% !important;
+  height: 40px !important;
   border: 1px solid #d1d5db !important;
   border-radius: 0.375rem !important;
   padding-left: 48px !important;
   font-size: 14px !important;
   line-height: 1.4 !important;
+  box-sizing: border-box !important;
 }
 
 .phone-input-container .react-tel-input .form-control:focus {
@@ -420,6 +428,9 @@ html {
   border: 1px solid #d1d5db !important;
   border-radius: 0.375rem 0 0 0.375rem !important;
   background-color: #f9fafb !important;
+  width: 48px !important;
+  min-width: 48px !important;
+  max-width: 48px !important;
 }
 
 .phone-input-container .react-tel-input .flag-dropdown.open {
@@ -453,4 +464,36 @@ html {
 .phone-input-container .react-tel-input .country-list .country.highlight {
   background-color: #3b82f6 !important;
   color: white !important;
+}
+
+/* Mobile responsive phone input */
+@media (max-width: 640px) {
+  .phone-input-container .react-tel-input .form-control {
+    height: 44px !important;
+    font-size: 16px !important;
+    padding-left: 52px !important;
+  }
+
+  .phone-input-container .react-tel-input .flag-dropdown {
+    width: 52px !important;
+    min-width: 52px !important;
+    max-width: 52px !important;
+  }
+
+  .phone-input-container .react-tel-input .selected-flag {
+    width: 52px !important;
+    min-width: 52px !important;
+    max-width: 52px !important;
+  }
+}
+
+/* Ensure phone input doesn't overflow on small screens */
+@media (max-width: 480px) {
+  .phone-input-container {
+    overflow: hidden !important;
+  }
+
+  .phone-input-container .react-tel-input {
+    overflow: hidden !important;
+  }
 }
