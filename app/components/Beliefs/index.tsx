@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const Beliefs = () => {
   return (
     <div className="mx-auto max-w-2xl lg:max-w-7xl sm:py-4 lg:px-8 rounded-3xl">
@@ -17,9 +19,11 @@ const Beliefs = () => {
             businesses grow and succeed.
           </h5>
           <div className="text-center sm:text-start">
-            <button className="text-xl py-5 px-14 mt-5 font-semibold text-white rounded-full bg-blue border border-blue hover:bg-hoblue">
-              Get Started
-            </button>
+            <Link href="/contact">
+              <button className="text-xl py-5 px-14 mt-5 font-semibold text-white rounded-full bg-blue border border-blue hover:bg-hoblue">
+                Get Started
+              </button>
+            </Link>
           </div>
         </div>
 
@@ -38,9 +42,11 @@ const Beliefs = () => {
             impact.
           </h5>
           <div className="text-center sm:text-start">
-            <button className="text-xl py-5 px-14 mt-5 font-semibold text-white rounded-full bg-blue border border-blue hover:bg-hoblue">
-              Learn more
-            </button>
+            <Link href="/contact">
+              <button className="text-xl py-5 px-14 mt-5 font-semibold text-white rounded-full bg-blue border border-blue hover:bg-hoblue">
+                Learn more
+              </button>
+            </Link>
           </div>
         </div>
       </div>

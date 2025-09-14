@@ -1,4 +1,5 @@
 import ContactForm from "../ContactForm";
+import Link from "next/link";
 
 const Banner = () => {
   return (
@@ -22,9 +23,11 @@ const Banner = () => {
             </h1>
           </div>
           <div className="my-7 text-center lg:text-start">
-            <button className="text-sm md:text-xl font-semibold hover:shadow-xl bg-blue text-white py-3 px-6 md:py-5 md:px-14 rounded-full hover:bg-hoblue">
-              Get Started
-            </button>
+            <Link href="/contact">
+              <button className="text-sm md:text-xl font-semibold hover:shadow-xl bg-blue text-white py-3 px-6 md:py-5 md:px-14 rounded-full hover:bg-hoblue">
+                Get Started
+              </button>
+            </Link>
           </div>
         </div>
 

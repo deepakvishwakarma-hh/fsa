@@ -49,13 +49,12 @@ const Contactusform = () => {
                     </button>
                 </div> */}
         <div className="hidden lg:block">
-          <button
-            type="button"
+          <Link
+            href="/contact"
             className="justify-end text-xl font-semibold bg-transparent py-4 px-6 lg:px-12 navbutton rounded-full hover:bg-navyblue hover:text-white"
-            onClick={openModal}
           >
             Contact Us
-          </button>
+          </Link>
         </div>
       </div>
 

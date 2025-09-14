@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 const names = [
@@ -153,9 +154,11 @@ const Manage = () => {
               <p className="text-sm font-medium text-darkgrey mb-6">
                 {items.user}
               </p>
-              <button className="text-sm font-bold text-blue bg-transparent hover:bg-blue hover:text-white border-2 border-blue rounded-full py-4 px-12 mb-6">
-                🚀 {items.button}
-              </button>
+              <Link href="/contact">
+                <button className="text-sm font-bold text-blue bg-transparent hover:bg-blue hover:text-white border-2 border-blue rounded-full py-4 px-12 mb-6">
+                  🚀 {items.button}
+                </button>
+              </Link>
               <hr style={{ color: "darkgrey", width: "50%", margin: "auto" }} />
               <div className="mt-6">
                 {items.features.map((feature, featureIndex) => (

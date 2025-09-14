@@ -77,13 +77,13 @@ const Aboutus = () => {
               <h4 className="text-lg font-normal text-black group-hover:text-offwhite mb-5">
                 {item.paragraph}
               </h4>
-              {/* <Link
-                href="#"
+              <Link
+                href="/contact"
                 className="text-lg font-semibold group-hover:text-white text-blue hover-underline"
               >
                 {item.link}
                 <ChevronRightIcon width={20} height={20} />
-              </Link> */}
+              </Link>
             </div>
           ))}
         </div>
