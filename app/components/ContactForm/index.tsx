@@ -15,7 +15,15 @@ interface FormData {
   message: string;
 }
 
-const ContactForm = () => {
+interface ContactFormProps {
+  compact?: boolean;
+  showTitle?: boolean;
+}
+
+const ContactForm = ({
+  compact = false,
+  showTitle = true,
+}: ContactFormProps) => {
   const [formData, setFormData] = useState<FormData>({
     name: "",
     phone: "",
@@ -159,17 +167,28 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-lg p-4 w-full max-w-sm mx-auto bg-digital">
-      <h2 className="text-xl font-bold text-darkpurple mb-4 text-center">
-        Drop a Message
-      </h2>
+    <div className={`w-full ${compact ? "max-w-sm mx-auto" : ""}`}>
+      {showTitle && (
+        <h2
+          className={`font-bold text-darkpurple mb-4 text-center ${
+            compact ? "text-lg" : "text-xl"
+          }`}
+        >
+          Drop a Message
+        </h2>
+      )}
 
-      <form onSubmit={handleSubmit} className="space-y-3">
+      <form
+        onSubmit={handleSubmit}
+        className={`space-y-3 ${compact ? "space-y-2" : ""}`}
+      >
         {/* Name Field */}
         <div>
           <label
             htmlFor="name"
-            className="block text-xs font-medium text-gray-700 mb-1"
+            className={`block font-medium text-gray-700 mb-1 ${
+              compact ? "text-xs" : "text-xs"
+            }`}
           >
             Name *
           </label>
@@ -180,7 +199,9 @@ const ContactForm = () => {
             value={formData.name}
             onChange={handleInputChange}
             required
-            className="w-full px-2 py-1.5 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-transparent"
+            className={`w-full px-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-transparent ${
+              compact ? "py-1 text-xs" : "py-1.5 text-sm"
+            }`}
             placeholder="Your full name"
           />
         </div>
@@ -189,7 +210,9 @@ const ContactForm = () => {
         <div>
           <label
             htmlFor="phone"
-            className="block text-xs font-medium text-gray-700 mb-1"
+            className={`block font-medium text-gray-700 mb-1 ${
+              compact ? "text-xs" : "text-xs"
+            }`}
           >
             Mobile Number *
             <span className="text-gray-500 ml-1">
@@ -204,7 +227,9 @@ const ContactForm = () => {
               name: "phone",
               required: true,
             }}
-            inputClass="w-full px-2 py-1.5 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-transparent"
+            inputClass={`w-full px-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-transparent ${
+              compact ? "py-1 text-xs" : "py-1.5 text-sm"
+            }`}
             buttonClass="border border-gray-300 rounded-l-md"
             containerClass="phone-input-container"
             enableSearch={false}
@@ -216,10 +241,19 @@ const ContactForm = () => {
         </div>
 
         {/* Email and Services Row */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div
+          className={`grid grid-cols-1 sm:grid-cols-2 ${
+            compact ? "gap-2" : "gap-3"
+          }`}
+        >
           {/* Email Field */}
           <div>
-            <label htmlFor="email" className="block text-xs font-medium mb-1">
+            <label
+              htmlFor="email"
+              className={`block font-medium mb-1 ${
+                compact ? "text-xs" : "text-xs"
+              }`}
+            >
               Email *
             </label>
             <input
@@ -229,14 +263,21 @@ const ContactForm = () => {
               value={formData.email}
               onChange={handleInputChange}
               required
-              className="w-full px-2 py-1.5 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-transparent"
+              className={`w-full px-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-transparent ${
+                compact ? "py-1 text-xs" : "py-1.5 text-sm"
+              }`}
               placeholder="your.email@example.com"
             />
           </div>
 
           {/* Services Dropdown */}
           <div>
-            <label htmlFor="service" className="block text-xs font-medium mb-1">
+            <label
+              htmlFor="service"
+              className={`block font-medium mb-1 ${
+                compact ? "text-xs" : "text-xs"
+              }`}
+            >
               Services *
             </label>
             <select
@@ -245,7 +286,9 @@ const ContactForm = () => {
               value={formData.service}
               onChange={handleInputChange}
               required
-              className="w-full px-2 py-1.5 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-transparent"
+              className={`w-full px-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-transparent ${
+                compact ? "py-1 text-xs" : "py-1.5 text-sm"
+              }`}
             >
               <option value="">Select a service</option>
               {services.map((service) => (
@@ -261,7 +304,9 @@ const ContactForm = () => {
         <div>
           <label
             htmlFor="businessTitle"
-            className="block text-xs font-medium text-white mb-1"
+            className={`block font-medium mb-1 ${
+              compact ? "text-xs text-gray-700" : "text-xs text-white"
+            }`}
           >
             Business Title *
           </label>
@@ -272,14 +317,21 @@ const ContactForm = () => {
             value={formData.businessTitle}
             onChange={handleInputChange}
             required
-            className="w-full px-2 py-1.5 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-transparent"
+            className={`w-full px-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-transparent ${
+              compact ? "py-1 text-xs" : "py-1.5 text-sm"
+            }`}
             placeholder="What business do you have?"
           />
         </div>
 
         {/* Location Field */}
         <div>
-          <label htmlFor="location" className="block text-xs font-medium mb-1">
+          <label
+            htmlFor="location"
+            className={`block font-medium mb-1 ${
+              compact ? "text-xs" : "text-xs"
+            }`}
+          >
             Location *
           </label>
           <input
@@ -289,14 +341,21 @@ const ContactForm = () => {
             value={formData.location}
             onChange={handleInputChange}
             required
-            className="w-full px-2 py-1.5 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-transparent"
+            className={`w-full px-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-transparent ${
+              compact ? "py-1 text-xs" : "py-1.5 text-sm"
+            }`}
             placeholder="Your location"
           />
         </div>
 
         {/* Message Field */}
         <div>
-          <label htmlFor="message" className="block text-xs font-medium mb-1">
+          <label
+            htmlFor="message"
+            className={`block font-medium mb-1 ${
+              compact ? "text-xs" : "text-xs"
+            }`}
+          >
             Message *
           </label>
           <textarea
@@ -305,8 +364,10 @@ const ContactForm = () => {
             value={formData.message}
             onChange={handleInputChange}
             required
-            rows={3}
-            className="w-full px-2 py-1.5 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-transparent resize-none"
+            rows={compact ? 2 : 3}
+            className={`w-full px-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-transparent resize-none ${
+              compact ? "py-1 text-xs" : "py-1.5 text-sm"
+            }`}
             placeholder="Tell us about your project..."
           />
         </div>
@@ -314,7 +375,9 @@ const ContactForm = () => {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="text-md font-semibold text-white bg-btnblue py-2 px-12 hover:bg-hoblue rounded-full w-full"
+          className={`font-semibold text-white bg-btnblue hover:bg-hoblue rounded-full w-full ${
+            compact ? "text-sm py-1.5 px-8" : "text-md py-2 px-12"
+          }`}
         >
           {isSubmitting ? "Sending..." : "Send Message"}
         </button>

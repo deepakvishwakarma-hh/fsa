@@ -30,7 +30,9 @@ const Banner = () => {
 
         {/* COLUMN-2 - Contact Form */}
         <div className="lg:flex lg:justify-center lg:items-start">
-          <ContactForm />
+          <div className="bg-white rounded-lg shadow-lg p-4 w-full max-w-sm mx-auto bg-digital">
+            <ContactForm compact={true} showTitle={true} />
+          </div>
         </div>
       </div>
     </div>
