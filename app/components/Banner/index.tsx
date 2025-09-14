@@ -2,7 +2,10 @@ import Image from "next/image";
 
 const Banner = () => {
   return (
-    <div className="mx-auto max-w-7xl my-10-- sm:py-10 px-6 lg:px-8">
+    <div
+      id="home-section"
+      className="mx-auto max-w-7xl my-10-- sm:py-10 px-6 lg:px-8"
+    >
       <div className="grid grid-cols-1 lg:grid-cols-2 my-16">
         {/* COLUMN-1 */}
 

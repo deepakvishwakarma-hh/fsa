@@ -1,64 +1,94 @@
 "use client";
 import Slider from "react-slick";
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { StarIcon } from "@heroicons/react/24/solid";
-import Image from "next/image";
 
 // CAROUSEL DATA
 
 interface DataType {
   profession: string;
   comment: string;
-  imgSrc: string;
   name: string;
 }
 
 const postData: DataType[] = [
   {
-    name: "Robert Fox",
-    profession: "CEO, Parkview Int.Ltd",
+    name: "mickyjones",
+    profession: "Overseas Client",
     comment:
-      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour",
-    imgSrc: "/images/testimonial/user1.svg",
+      "I had the pleasure of working with him on a small animation project, and the experience exceeded all expectations. Not only did he deliver exactly what was asked, but he went above and beyond. Their communication was clear and prompt throughout the process, and he demonstrated a strong sense of creativity and attention to detail. If you're looking for someone who takes pride in their work and delivers exceptional results, I highly recommend him. I look forward to collaborating again in the future! Thanks!",
   },
   {
-    name: "Leslie Alexander",
-    profession: "CEO, Parkview Int.Ltd",
-    comment:
-      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour",
-    imgSrc: "/images/testimonial/user2.svg",
+    name: "Giuseppe Cela",
+    profession: "Overseas Client",
+    comment: "E' stato molto attento e pronto ad accogliere i suggerimenti",
   },
   {
-    name: "Cody Fisher",
-    profession: "CEO, Parkview Int.Ltd",
+    name: "Jessica",
+    profession: "Overseas Client",
     comment:
-      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour",
-    imgSrc: "/images/testimonial/user3.svg",
+      "Exceptional developer! From the very first project, it was clear they truly understand how to translate ideas into code. They grasped my requirements quickly, asked the right questions, and delivered a flawless implementation—exactly as I envisioned. Fast, skilled, and highly professional. Will absolutely hire again!",
   },
   {
-    name: "Robert Fox",
-    profession: "CEO, Parkview Int.Ltd",
+    name: "Gautam Agrawari",
+    profession: "Stemandspace",
     comment:
-      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour",
-    imgSrc: "/images/testimonial/user1.svg",
-  },
-  {
-    name: "Leslie Alexander",
-    profession: "CEO, Parkview Int.Ltd",
-    comment:
-      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour",
-    imgSrc: "/images/testimonial/user2.svg",
-  },
-  {
-    name: "Cody Fisher",
-    profession: "CEO, Parkview Int.Ltd",
-    comment:
-      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour",
-    imgSrc: "/images/testimonial/user3.svg",
+      "Thanks Deepak, Its always pleasure working with you, timely delivery, right advise. helps a lot for small companies like us. I look forward to working with you again in near future. All the best and keep up the good work.",
   },
 ];
 
 // CAROUSEL SETTINGS
+
+const TestimonialCard = ({
+  item,
+  index,
+}: {
+  item: DataType;
+  index: number;
+}) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const maxLength = 150; // Character limit for truncated text
+
+  const shouldTruncate = item.comment.length > maxLength;
+  const displayText =
+    isExpanded || !shouldTruncate
+      ? item.comment
+      : item.comment.substring(0, maxLength) + "...";
+
+  return (
+    <div className="relative">
+      <div className="bg-white test-sha m-3 p-10 my-20 rounded-3xl h-80 flex flex-col">
+        <h4 className="text-base font-medium text-testColor my-4 flex-grow">
+          {displayText}
+        </h4>
+        {shouldTruncate && (
+          <button
+            onClick={() => setIsExpanded(!isExpanded)}
+            className="text-blue-600 hover:text-blue-800 text-sm font-medium mb-4 self-start"
+          >
+            {isExpanded ? "Show less" : "Show more"}
+          </button>
+        )}
+        <hr style={{ color: "lightgrey" }} />
+        <div className="flex justify-between">
+          <div>
+            <h3 className="text-base font-medium pt-4 pb-2">{item.name}</h3>
+            <h3 className="text-xs font-medium pb-2 opacity-50">
+              {item.profession}
+            </h3>
+          </div>
+          <div className="flex">
+            <StarIcon width={20} className="star" />
+            <StarIcon width={20} className="star" />
+            <StarIcon width={20} className="star" />
+            <StarIcon width={20} className="star" />
+            <StarIcon width={20} className="star" />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default class MultipleItems extends Component {
   render() {
@@ -123,39 +153,8 @@ export default class MultipleItems extends Component {
           </div>
 
           <Slider {...settings}>
-            {postData.map((items, i) => (
-              <div key={i} className="relative">
-                <div className="bg-white test-sha m-3 p-10 my-20 rounded-3xl">
-                  <Image
-                    src={items.imgSrc}
-                    alt={items.imgSrc}
-                    width={71}
-                    height={71}
-                    className="inline-block m-auto absolute test-pos"
-                  />
-                  <h4 className="text-base font-medium text-testColor my-4">
-                    {items.comment}
-                  </h4>
-                  <hr style={{ color: "lightgrey" }} />
-                  <div className="flex justify-between">
-                    <div>
-                      <h3 className="text-base font-medium pt-4 pb-2">
-                        {items.name}
-                      </h3>
-                      <h3 className="text-xs font-medium  pb-2 opacity-50">
-                        {items.profession}
-                      </h3>
-                    </div>
-                    <div className="flex">
-                      <StarIcon width={20} className="star" />
-                      <StarIcon width={20} className="star" />
-                      <StarIcon width={20} className="star" />
-                      <StarIcon width={20} className="star" />
-                      <StarIcon width={20} className="star" />
-                    </div>
-                  </div>
-                </div>
-              </div>
+            {postData.map((item, i) => (
+              <TestimonialCard key={i} item={item} index={i} />
             ))}
           </Slider>
         </div>
