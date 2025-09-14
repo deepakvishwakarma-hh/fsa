@@ -1,4 +1,4 @@
-import Image from "next/image";
+import ContactForm from "../ContactForm";
 
 const Banner = () => {
   return (
@@ -6,7 +6,7 @@ const Banner = () => {
       id="home-section"
       className="mx-auto max-w-7xl my-10-- sm:py-10 px-6 lg:px-8"
     >
-      <div className="grid grid-cols-1 lg:grid-cols-2 my-16">
+      <div className="grid grid-cols-1 lg:grid-cols-2 my-16 gap-8">
         {/* COLUMN-1 */}
 
         <div className="mx-auto sm:mx-0 flex flex-col justify-center">
@@ -28,15 +28,9 @@ const Banner = () => {
           </div>
         </div>
 
-        {/* COLUMN-2 */}
-
-        <div className="lg:-m-24-- lg:pt-20 hidden lg:block">
-          <Image
-            src="/images/banner/banner.svg"
-            alt="hero-image"
-            width={800}
-            height={642}
-          />
+        {/* COLUMN-2 - Contact Form */}
+        <div className="lg:flex lg:justify-center lg:items-start">
+          <ContactForm />
         </div>
       </div>
     </div>
