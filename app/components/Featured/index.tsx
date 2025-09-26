@@ -8,24 +8,39 @@ import Image from "next/image";
 interface DataType {
   heading: string;
   imgSrc: string;
+  descr: string;
 }
 
 const postData: DataType[] = [
   {
-    heading: "Brand design for a computer brand.",
-    imgSrc: "/images/featured/feat1.jpg",
+    heading: "Carlove - Car Service App",
+    descr:
+      "Book car maintenance, track service history, and get real-time updates easily.",
+    imgSrc: "/getcarlove/1.jpg",
   },
   {
-    heading: "Mobile app 3d wallpaper.",
-    imgSrc: "/images/featured/feat2.jpg",
+    heading: "Spacetopia for Students",
+    descr:
+      "A fun space learning platform with lessons, quizzes, and multimedia for students.",
+    imgSrc: "/spacetopia/1.jpg",
   },
   {
-    heading: "Brand design for a computer brand.",
-    imgSrc: "/images/featured/feat1.jpg",
+    heading: "Incanstry",
+    descr:
+      "Seamless e-commerce platform with secure payments and easy product management.",
+    imgSrc: "/incanstry/1.jpg",
   },
   {
-    heading: "Mobile app 3d wallpaper.",
-    imgSrc: "/images/featured/feat2.jpg",
+    heading: "KNS Properties",
+    descr:
+      "Manage property listings, tenants, and rent collection with ease and transparency.",
+    imgSrc: "/kns/3.jpg",
+  },
+  {
+    heading: "Kurukshetra Travels",
+    descr:
+      "Travel site with guides, booking options, and tips for exploring Kurukshetra.",
+    imgSrc: "/kurukshetra/1.jpg",
   },
 ];
 
@@ -138,6 +153,9 @@ export default class MultipleItems extends Component {
                     <h4 className="sm:text-5xl font-bold sm:pt-6 text-center sm:text-start mt-10 text-white">
                       {items.heading}
                     </h4>
+                    <p className="sm:text-2xl font-normal sm:pt-6 text-center sm:text-start mt-2 text-white">
+                      {items.descr}
+                    </p>
                   </div>
                 </div>
               </div>
